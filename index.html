@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sketch</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+    <script src="source.js"></script>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="container">
+        <a class="logo" href="#"><span>Interference</span>Simulator</a>
+
+        <div class="navbar-items">
+          <img
+            id="question-mark"
+            class="navbar-item open-modalsheet"
+            src="images/question-mark.svg"
+          />
+        </div>
+      </div>
+    </div>
+
+    <section class="controls">
+      <div class="playback-speed-container">
+        <label for="playback-speed-slider">
+          Playback Speed: <span class="playback-speed-value">1x</span>
+        </label>
+        <input
+          id="playback-speed-slider"
+          type="range"
+          max="100"
+          min="0"
+          step="0.1"
+          value="1"
+        />
+      </div>
+    </section>
+
+    <section class="new-source">
+      <div class="add-new-source">
+        <h3>Add a new source of disturbance</h3>
+        <div class="help" style="display: none">
+          💡 Tip: set coordinates by clicking on the simulation
+        </div>
+        <div class="alert" style="display: none">All Fields are required</div>
+
+        <form class="source-form">
+          <div class="form-item-container">
+            <label for="amplitude">amplitude (m)</label>
+            <input type="number" id="amplitude" required />
+          </div>
+
+          <div class="form-item-container">
+            <label for="wavelength">wavelength (m)</label>
+            <input type="number" id="wavelength" required />
+          </div>
+
+          <div class="form-item-container">
+            <label for="frequency">frequency (Hz)</label>
+            <input type="number" id="frequency" required />
+          </div>
+
+          <div class="form-item-container">
+            <label for="x-coordinate">x-coordinate</label>
+            <input type="number" id="x-coordinate" required />
+          </div>
+
+          <div class="form-item-container">
+            <label for="y-coordinate">y-coordinate</label>
+            <input type="number" id="y-coordinate" required />
+          </div>
+
+          <button type="button" id="add-source-button">add source</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <h3>Sources of disturbance in the medium</h3>
+      <div class="scrollable">
+        <div class="no-disturbances-message">
+          The Medium is perfectly still
+          <br />
+          Add a source of disturbance
+        </div>
+        <table class="sources-table">
+          <thead>
+            <th>#</th>
+            <th>Amplitude</th>
+            <th>Frequency</th>
+            <th>Wavelength</th>
+            <th>Coordinates</th>
+          </thead>
+          <tbody class="table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="modalsheet">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Simulation Controls and Shortcuts</h3>
+        <ul>
+          <li>Zoom-in: +</li>
+          <li>Zoom-out: -</li>
+          <li>Pan-up: W</li>
+          <li>Pan-left: A</li>
+          <li>Pan-down: S</li>
+          <li>Pan-right: D</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="sketch.js"></script>
+    <script src="userInterface.js"></script>
+  </body>
+</html>
