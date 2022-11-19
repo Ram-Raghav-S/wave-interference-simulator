@@ -1,6 +1,6 @@
 # wave-interference-simulator
 
-A customizable graphical simulator of wave interference.
+A customizable graphic simulator of wave interference.
 
 ## Demo
 
